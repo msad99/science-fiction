@@ -1,0 +1,68 @@
+$header-font: 'Merriweather', serif;
+$font-colour: #F1F2EB;
+$text-font: 'Roboto', arial, sans-serif;
+$background-color: #00001a;
+$image-width: 500px;
+$link-color: #D8DAD3;
+$button-color: #000066;
+
+center {
+    text-align: center;
+}
+
+@mixin rounded-corners ($radius: 4px) {
+    -webkit-border-radius: $radius;
+    -moz-border-radius: $radius;
+    border-radius: $radius;
+}
+body{
+    background-color: $background-color; 
+}
+h1, h2, h3, h4{
+    font-family: $header-font;
+    font-weight: 450;
+    @extend center;
+    color: $font-colour;
+}
+p{ 
+    font-family: $text-font;
+    font-weight: 100;
+    color: $font-colour;
+    margin: 0 5%;
+}
+figure{
+    @extend center;
+}
+ul{
+    margin: 0;
+    list-style: none;
+    @extend center;
+    background-color: $button-color;
+    padding: 0.5% 0;
+    margin: 0 0.5%;
+li {
+    display: inline;
+    @include rounded-corners();
+    padding: 0 3%;
+    
+    margin: 0 1%;
+    a {
+        font-family: $header-font;
+        text-decoration: none;
+        color: $link-color;
+        
+        &:hover {
+            text-decoration: underline;
+            color: darken($font-colour , 15);
+        }
+    }
+}
+}
+figcaption{
+    @extend p;
+    text-align: left;
+}
+img{
+    @include rounded-corners($radius: 20px);
+    max-width: $image-width;
+}
